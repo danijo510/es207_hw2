@@ -1,0 +1,67 @@
+---
+title: "jones_hw2"
+author: "djones47"
+date: "2/3/2020"
+output: html_document
+---
+5.
+```{r}
+v <- c(8:19) #creating vector v, then printing vector v
+v
+
+# 5. creating vector w that is a subset of the first 4 elements of v
+w <- c(v[1:4])
+w
+
+```
+
+6.
+```{r}
+
+#creating and printing vector d
+d <- c(8:20)
+d
+
+#6. creating and printing vector h that is a subset of the middle 5 elements of d
+h <- c(d[5:9])
+h
+```
+
+7.
+```{r}
+# 7. what is the length of vector w?
+length(w)
+```
+
+8. The three properties of a vector are the type, the length and the attributes
+
+9. I predict `c(3,False)` will be a double, `c("a,1)` will be a character, and `c(4L,2)` will also be a double
+
+10: The 4 types of common atomic vectors are character, numeric, integer, and logical. The two uncommon types are complex and raw
+
+11. `1=="1"` is true because I think the character must be coerced into an integer or a double? I think `-1<FALSE` is true because false will become a O and -1<0 is true. `One < 2` is false because I don't believe R can convert one to 1 so they cannot be truely compared. 
+
+12. Maybe NA gets changed to a 0 which would be FALSE which is part of a logical vector?
+
+13. Provide the value of the last element in the result of the vector operation `d*2` from the vectors defined above
+```{r}
+#Creating vector e, then determining the last value in e
+e <- d*2
+e
+e[13]
+
+```
+
+14. Create a vector `a` with a sequence of 11 elements ranging from 0.6 to 1.9 then create a logical vector `b` that identifies which elements in `a` are greater than or equal to 1.1
+```{r}
+#creating vector a 
+a <- seq(from = 0.6, to = 1.9, length = 11)
+a
+
+#creating vector b
+b <- which(a >= 1.1)
+b
+```
+
+
+
