@@ -1,0 +1,52 @@
+---
+title: "jones_demo_1"
+author: "djones47"
+date: "2/3/2020"
+output: pdf_document
+---
+
+```{r}
+#Install and run the relevant packages
+library(dplyr) # an excellent data manipulation package
+library(tidyr) # a package to format your data
+library(pander) #to create pretty tables
+
+setwd("C:/Users/Cartw/Desktop/Spring2020/ES207/R/Homework2") #set wd
+
+#Import data 
+elongation <- read.csv("EmpetrumElongation.csv", sep = ",") # stem elongation measurements on crowberry
+#germination <- read.csv("Germination.csv", sep = ";") # germination of seeds subjected to toxic solutions (Not included with CSVs)
+
+#Putting the data into long format using gather()
+elongation_long <- gather(elongation, Year, Length, c(X2007, X2008, X2009, X2010, X2011, X2012)) 
+  #gather() works like this: data, key, value, columns to gather. Here we want the lengths (value) to be gathered by year (key). Note that you are completely making up the names of the second and third arguments, unlike most functions in R.
+head(elongation_long)
+
+
+
+```
+
+
+Now I will create a box plot 
+
+```{r}
+boxplot(Length ~ Year, 
+        data = elongation_long, 
+        xlab = "Year", 
+        ylab = "Elongation (cm)", 
+        main = "Annual growth of Empetrum hermaphroditum")
+```
+
+The following code does not work because the germination csv was not included with the data files
+
+```{r}
+#germinSR <- filter(germination, Species == 'SR')
+#hist(germinSR$Nb_seeds_germin, breaks = 8)
+#germin_percent <- mutate(germination, Percent = Nb_seeds_germin / Nb_seeds_tot * 100)
+#germin_summ <- germin_percent %>%
+  #group_by(Species) %>%
+ # summarise("Mean germination per" = mean(Nb_seeds_germin), "Max germination per" = max(Nb_seeds_germin), "Min germination per" = min(Nb_seeds_germin))
+
+
+```
+
